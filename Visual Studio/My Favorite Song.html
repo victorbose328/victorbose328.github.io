@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Song</title>
+    <style>
+        /* CSS for customization */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        iframe {
+            margin-top: 20px;
+            border: 5px solid #4CAF50;
+            border-radius: 10px;
+        }
+
+        #animate-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6347;
+            position: relative;
+            margin: 20px auto;
+            animation: moveBox 4s infinite alternate;
+        }
+
+        @keyframes moveBox {
+            0% {
+                left: 0;
+                top: 0;
+            }
+
+            25% {
+                left: 50%;
+                top: 0;
+            }
+
+            50% {
+                left: 50%;
+                top: 50%;
+            }
+
+            75% {
+                left: 0;
+                top: 50%;
+            }
+
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my Page! This is my Favorite Song: by Victor Bose</h1>
+
+    <!-- Embedded YouTube video -->
+    <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/LX-phYsiMdg"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+
+    <!-- Animated box -->
+    <div id="animate-box"></div>
+
+    <!-- JavaScript animation -->
+    <script>
+        // JavaScript to move the animated box
+        document.addEventListener('DOMContentLoaded', () => {
+            const box = document.getElementById('animate-box');
+            let pos = 0;
+            const animate = () => {
+                pos += 1;
+                box.style.left = pos + 'px';
+                if (pos >= window.innerWidth - 100) {
+                    pos = 0;
+                }
+                requestAnimationFrame(animate);
+            };
+            animate();
+        });
+    </script>
+</body>
+</html>
